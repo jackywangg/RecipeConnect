@@ -9,4 +9,4 @@ The focus group for this project are **students** or **homecooks** - those who p
 - As a user, I want to be able to add an ingredient into a recipe.
 - As a user, I want to be able to view the list of ingredients in a recipe.
 - As a user, I want to ensure that I am notified or wary of ingredients that can be used in more than one recipe (i.e., a mark or star beside the ingredient).
-- As a user, I want to select a set of ingredients and randomize a recipe that includes the ingredients I selected.
+- As a user, I want to select a set of ingredients and click a button that brings up a random recipe that uses such ingredients, if such recipe exists.
