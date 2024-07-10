@@ -1,10 +1,8 @@
-# My Personal Project
+# Recipe Connect Project
 
-## A subtitle
+## Proposal
+Recipe Connect is an application that primarily stores recipes, which includes its ingredients and instructions. However, a feature within this application focuses on ingredients - being able to check which ingredients can be used in more than one recipe (hence, *connect* one recipe with another ingredient-wise). This can help narrow down "essential" ingredients to encourage cost-effective grocery shopping.
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+The focus group for this project are **students** or **homecooks** - those who primarily cook at home as opposed to eating outside or purchasing takeout. Assuming homecooks do their own grocery shopping, this application would make it easier to track their recipes while minimizing spending on ingredients that are catered towards one or few dishes, if they wish.
 
-An example of text with **bold** and *italic* fonts.  
+I am interested in this project because as a student who is trying to minimize his spending but enjoys cooking, having an application that stores the list of recipes that I either have made or interested in makes it convenient to choose what I want for my next meal. I don't have to do much creative thinking on what to eat; instead, I can preview the list of recipes and choose among them (or get inspired to do a rendition of it). Furthermore, as someone who does his own grocery shopping, I try not to purchase ingredients that can only be used in one dish that I am familiar with because such ingredient would be unused most of the time. For example, I bought black bean paste few months ago, but only use it for black bean noodles, which I eat infrequently and the paste is just taking up space in my fridge. Additionally, as I live away from family and rent, this can be one-less item that I would have to bring or waste if I do move. 
