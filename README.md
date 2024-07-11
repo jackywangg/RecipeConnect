@@ -8,5 +8,8 @@ The focus group for this project are **students** or **homecooks** - those who p
 ## User Stories:
 - As a user, I want to be able to add an ingredient into a recipe.
 - As a user, I want to be able to view the list of ingredients in a recipe.
+- As a user, I want to be able to view the number of ingredients in each recipe and the number of recipes in my collection.
 - As a user, I want to ensure that I am notified or wary of ingredients that can be used in more than one recipe (i.e., a mark or star beside the ingredient).
+- As a user, I want to be able to see a list of recipes that can be made given the ingredients I currently have.
 - As a user, I want to select a set of ingredients and click a button that brings up a random recipe that uses such ingredients, if such recipe exists.
+- As a user, I want to be able to select a recipe (or ingredient) name and view its contents. For recipes, this includes its ingredients and steps. For ingredients, this can include price at time purchased and location it was purchased.
