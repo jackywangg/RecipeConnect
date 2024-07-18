@@ -66,20 +66,6 @@ public class Recipe {
         }
     }
 
-    // EFFECTS: If the list of ingredient quantities is empty, return null;
-    // otherwise,
-    // print each quantity in the list and returns an empty string.
-    public String getQuantity() {
-        if (listOfIngredientQuantity.isEmpty()) {
-            return null;
-        } else {
-            for (String ri : listOfIngredientQuantity) {
-                System.out.println(ri);
-            }
-            return "";
-        }
-    }
-
     // REQUIRES: instruction not already in recipe
     // MODIFIES: this
     // EFFECTS: adds given instruction into recipe
@@ -99,6 +85,20 @@ public class Recipe {
     // EFFECTS: edits given instruction in index with newInstruction
     public void editInstruction(int index, String newInstruction) {
         recipeInstructions.set(index, newInstruction);
+    }
+
+    // EFFECTS: If the list of ingredient quantities is empty, return null;
+    // otherwise,
+    // print each quantity in the list and returns an empty string.
+    public String getQuantity() {
+        if (listOfIngredientQuantity.isEmpty()) {
+            return null;
+        } else {
+            for (String ri : listOfIngredientQuantity) {
+                System.out.println(ri);
+            }
+            return "";
+        }
     }
 
     public String getRecipeName() {

@@ -31,7 +31,6 @@ public class RecipeConnect {
         }
     }
 
-    // MODIFIES: this
     // EFFECTS: Executes the system for user interaction.
     public void console() {
         displayMenu();
@@ -39,8 +38,7 @@ public class RecipeConnect {
         executeCommand(userInput);
     }
 
-    // MODIFIES: this
-    // EFFECTS: Executes the main menu
+    // EFFECTS: Processes the main menu
     public void executeCommand(String userInput) {
         switch (userInput) {
             case "a":
@@ -151,7 +149,7 @@ public class RecipeConnect {
 
     // MODIFIES: this
     // EFFECTS: Prints all recipes; otherwise, indicate that the recipe list is
-    // empty
+    //          empty
     public void viewAllRecipes() {
         if (recipe.size() > 0) {
             printAllRecipes();
@@ -231,7 +229,7 @@ public class RecipeConnect {
             }
         }
     }
-    
+
     // EFFECTS: Displays a menu with possible actions.
     public void displayMenu() {
         System.out.println("Select one of the following options:\n");

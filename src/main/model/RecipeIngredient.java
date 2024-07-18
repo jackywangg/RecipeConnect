@@ -5,7 +5,6 @@ public class RecipeIngredient {
     private Ingredient ingredient;
     private String quantity;
 
-    // MODIFIES: this
     // EFFECTS: Initializes with the given ingredient and quantity
     public RecipeIngredient(Ingredient ingredient, String quantity) {
         this.ingredient = ingredient;
