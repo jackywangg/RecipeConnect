@@ -1,15 +1,14 @@
 # Recipe Connect Project
 
 ## Proposal
-Recipe Connect is an application that primarily stores recipes, which includes its ingredients and instructions. However, a feature within this application focuses on ingredients - being able to check which ingredients can be used in more than one recipe (hence, *connect* one recipe with another ingredient-wise). This can help narrow down "essential" ingredients to encourage cost-effective grocery shopping.
+Recipe Connect is an application that primarily stores recipes, which includes its ingredients and instructions. However, a feature within this application is to call a random recipe within your collection of recipes to reduce time spent on choosing what to cook.
 
-The focus group for this project are **students** or **homecooks** - those who primarily cook at home as opposed to eating outside or purchasing takeout. As a student who enjoys cooking and aims to minimize spending, I am interested in developing a project that can store and track recipes, making it easier to plan meals and reduce waste. For example, it would help to make wary of purchasing ingredients that are only used in a few dishes; in my case, black bean paste, which I bought months ago and rarely use except for black bean noodles. Furthermore, this is useful for those living away from family as it reduces the number of items to bring or waste when moving.
+The focus group for this project are **students** or **homecooks** - those who primarily cook at home as opposed to eating outside or purchasing takeout. As a student who enjoys cooking but tries to minimize cooking time, I am interested in developing a project that can store and track recipes, making it easier to plan or choose meals.
 
 ## User Stories:
-- As a user, I want to be able to add an ingredient into a recipe.
-- As a user, I want to be able to view the list of ingredients in a recipe.
-- As a user, I want to be able to view the number of ingredients in each recipe and the number of recipes in my collection.
-- As a user, I want to ensure that I am notified or wary of ingredients that can be used in more than one recipe (i.e., a mark or star beside the ingredient).
-- As a user, I want to be able to see a list of recipes that can be made given the ingredients I currently have.
-- As a user, I want to select a set of ingredients and click a button that brings up a random recipe that uses such ingredients, if such recipe exists.
-- As a user, I want to be able to select a recipe (or ingredient) name and view its contents. For recipes, this includes its ingredients and steps. For ingredients, this can include price at time purchased and location it was purchased.
+- As a user, I want to be able to add an ingredient into a recipe.          
+- As a user, I want to be able to view the list of ingredients in a recipe. 
+- As a user, I want to be able to view the number of ingredients in each recipe and the number of recipes in my collection.                                                   
+- As a user, I want to be able to view the instructions pertaining to a recipe.
+- As a user, I want to be able to remove a recipe form my list of recipes   
+- As a user, I want to grab a random recipe among the recipes I've created.
