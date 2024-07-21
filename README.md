@@ -12,3 +12,6 @@ The focus group for this project are **students** or **homecooks** - those who p
 - As a user, I want to be able to view the instructions pertaining to a recipe.
 - As a user, I want to be able to remove a recipe form my list of recipes   
 - As a user, I want to grab a random recipe among the recipes I've created.
+
+- As a user, I want to be able to save the collection of my recipes (and its contents - i.e., ingredients and instructions) to a file.
+- As a user, I want to be able to re-load my saved file and resume where I left off; otherwise, have the option to create a new file instance.
