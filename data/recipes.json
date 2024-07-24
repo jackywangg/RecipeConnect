@@ -1,0 +1,22 @@
+[
+    {
+        "instructions": [
+            "202",
+            "lol",
+            "money"
+        ],
+        "name": "wow",
+        "ingredients": [{
+            "quantity": "10",
+            "name": "model.Ingredient@2a2d45ba"
+        }]
+    },
+    {
+        "instructions": ["ooo"],
+        "name": "money",
+        "ingredients": [{
+            "quantity": "oo",
+            "name": "model.Ingredient@2a5ca609"
+        }]
+    }
+]

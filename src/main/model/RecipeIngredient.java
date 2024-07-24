@@ -1,7 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents an ingredient paired with its quantity used for the recipe.
-public class RecipeIngredient {
+public class RecipeIngredient implements Writable {
     private Ingredient ingredient;
     private String quantity;
 
@@ -34,5 +38,13 @@ public class RecipeIngredient {
     @Override
     public String toString() {
         return ingredient.getName();
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("name", ingredient.toString());
+        jsonObj.put("quantity", quantity);
+        return jsonObj;
     }
 }

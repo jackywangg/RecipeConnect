@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -162,5 +164,18 @@ public class TestRecipe {
         String quantities = recipe.getQuantity();
         assertNull(quantities);
     }
-    
+
+    @Test
+    void testToJson() {
+        recipe.addInstruction("Boil water");
+        recipe.addInstruction("Add salt");
+
+        JSONObject recipeJson = recipe.toJson();
+        JSONArray instructionsJson = recipeJson.getJSONArray("instructions");
+
+        assertEquals(2, instructionsJson.length());
+        assertEquals("Boil water", instructionsJson.getString(0));
+        assertEquals("Add salt", instructionsJson.getString(1));
+    }
+
 }

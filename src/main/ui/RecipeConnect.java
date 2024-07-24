@@ -1,10 +1,14 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 // RecipeConnect application
 public class RecipeConnect {
@@ -12,10 +16,15 @@ public class RecipeConnect {
     private Scanner scanner;
     private boolean isRunning;
     private Random random;
+    private static final String JSON_STORE = "./data/recipes.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: Runs the RecipeConnect application
     public RecipeConnect() {
         initialize();
+        this.jsonReader = new JsonReader(JSON_STORE);
+        this.jsonWriter = new JsonWriter(JSON_STORE);
         System.out.println("Welcome to the RecipeConnect Application!");
         while (this.isRunning) {
             console();
@@ -50,11 +59,14 @@ public class RecipeConnect {
             case "v":
                 viewAllRecipes();
                 break;
-            case "r":
-                randomRecipe();
-                break;
             case "x":
                 exitApplication();
+                break;
+            case "s":
+                saveRecipes();
+                break;
+            case "l":
+                loadRecipes();
                 break;
             default:
                 System.out.println("Please choose a valid option.");
@@ -64,8 +76,29 @@ public class RecipeConnect {
     // MODIFIES: this
     // EFFECTS: Quits the application
     public void exitApplication() {
+        saveRecipes();
         System.out.println("See you next time!");
         this.isRunning = false;
+    }
+
+    public void saveRecipes() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(recipe);
+            jsonWriter.close();
+            System.out.println("Saved recipes to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to " + JSON_STORE);
+        }
+    }
+
+    private void loadRecipes() {
+        try {
+            recipe = jsonReader.read();
+            System.out.println("Loaded recipes from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     // EFFECTS: Prints the list of recipes
@@ -142,24 +175,28 @@ public class RecipeConnect {
 
     // EFFECTS: Displays a selection menu to view a recipe
     public void viewAllRecipesSelection() {
-        System.out.println("Would you like to view a recipe?");
-        System.out.println("y: Yes");
+        System.out.println("Would you like to view or generate a random recipe?");
+        System.out.println("v: View specific recipe");
+        System.out.println("r: Generate a random recipe");
         System.out.println("n: No");
     }
 
     // MODIFIES: this
     // EFFECTS: Prints all recipes; otherwise, indicate that the recipe list is
-    //          empty
+    // empty
     public void viewAllRecipes() {
         if (recipe.size() > 0) {
             printAllRecipes();
             viewAllRecipesSelection();
             String yesNo = scanner.nextLine();
             switch (yesNo) {
-                case "y":
+                case "v":
                     System.out.println("Which recipe?");
                     int number = Integer.valueOf(scanner.nextLine()) - 1;
                     printRecipe(recipe.get(number));
+                    break;
+                case "r":
+                    randomRecipe();
                     break;
                 case "n":
                     System.out.println("Returning to menu");
@@ -221,12 +258,16 @@ public class RecipeConnect {
             System.out.println("Instruction successfully added!");
             System.out.println("a: Add more instructions?");
             System.out.println("b: Return to menu");
-            if (scanner.nextLine().equals("b")) {
+            String cont = scanner.nextLine();
+            if (cont.equals("b")) {
                 System.out.println("Returning to menu...");
                 break;
-            } else if (!scanner.nextLine().equals("a")) {
+            } else if (cont.equals("a")) {
+                continue;
+            } else {
                 System.out.println("Please choose a valid option.");
             }
+
         }
     }
 
@@ -235,9 +276,11 @@ public class RecipeConnect {
         System.out.println("Select one of the following options:\n");
         System.out.println("a: Add a recipe");
         System.out.println("d: Delete a recipe");
-        System.out.println("r: Random recipe");
         System.out.println("v: View all recipes");
         System.out.println("x: Exit application");
+        System.out.println("");
+        System.out.println("s: Save recipe(s)");
+        System.out.println("l: Load existing file");
     }
 
     // MODIFIES: this

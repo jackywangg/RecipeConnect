@@ -1,0 +1,24 @@
+[
+    {
+        "instructions": [],
+        "name": "Recipe1",
+        "ingredients": [
+            {
+                "quantity": "1 cup",
+                "name": "model.Ingredient@592238c5"
+            },
+            {
+                "quantity": "2 tsp",
+                "name": "model.Ingredient@6ee8dcd3"
+            }
+        ]
+    },
+    {
+        "instructions": [],
+        "name": "Recipe2",
+        "ingredients": [{
+            "quantity": "500 ml",
+            "name": "model.Ingredient@a20b94b"
+        }]
+    }
+]

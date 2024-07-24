@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Recipe1",
+    "ingredients": [
+      {
+        "name": "Ingredient1",
+        "quantity": "1 cup"
+      },
+      {
+        "name": "Ingredient2",
+        "quantity": "2 tsp"
+      }
+    ],
+    "instructions": [
+      "Step 1: Do something",
+      "Step 2: Do something else"
+    ]
+  },
+  {
+    "name": "Recipe2",
+    "ingredients": [
+      {
+        "name": "Ingredient3",
+        "quantity": "500 ml"
+      }
+    ],
+    "instructions": [
+      "Step 1: Mix ingredients",
+      "Step 2: Bake for 30 minutes"
+    ]
+  }
+]

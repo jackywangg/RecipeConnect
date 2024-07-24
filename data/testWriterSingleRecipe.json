@@ -1,0 +1,14 @@
+[{
+    "instructions": [],
+    "name": "Recipe1",
+    "ingredients": [
+        {
+            "quantity": "1 cup",
+            "name": "model.Ingredient@3e4f80cb"
+        },
+        {
+            "quantity": "2 tsp",
+            "name": "model.Ingredient@38704ff0"
+        }
+    ]
+}]
