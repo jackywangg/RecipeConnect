@@ -232,6 +232,7 @@ public class RecipeConnect {
             }
         }
     }
+    
 
     // REQUIRES: newRecipe is not null
     // MODIFIES: newRecipe
@@ -267,7 +268,6 @@ public class RecipeConnect {
             } else {
                 System.out.println("Please choose a valid option.");
             }
-
         }
     }
 
@@ -291,4 +291,5 @@ public class RecipeConnect {
         this.isRunning = true;
         random = new Random();
     }
+
 }

@@ -43,7 +43,7 @@ public class RecipeIngredient implements Writable {
     @Override
     public JSONObject toJson() {
         JSONObject jsonObj = new JSONObject();
-        jsonObj.put("name", ingredient.toString());
+        jsonObj.put("name", ingredient.getName());
         jsonObj.put("quantity", quantity);
         return jsonObj;
     }
