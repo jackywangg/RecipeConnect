@@ -5,11 +5,11 @@
         "ingredients": [
             {
                 "quantity": "1 cup",
-                "name": "model.Ingredient@592238c5"
+                "name": "Ingredient1"
             },
             {
                 "quantity": "2 tsp",
-                "name": "model.Ingredient@6ee8dcd3"
+                "name": "Ingredient2"
             }
         ]
     },
@@ -18,7 +18,7 @@
         "name": "Recipe2",
         "ingredients": [{
             "quantity": "500 ml",
-            "name": "model.Ingredient@a20b94b"
+            "name": "Ingredient3"
         }]
     }
 ]

@@ -3,7 +3,6 @@ package persistence;
 import model.*;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.*;
 import java.util.List;

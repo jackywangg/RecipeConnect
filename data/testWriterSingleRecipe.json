@@ -4,11 +4,11 @@
     "ingredients": [
         {
             "quantity": "1 cup",
-            "name": "model.Ingredient@3e4f80cb"
+            "name": "Ingredient1"
         },
         {
             "quantity": "2 tsp",
-            "name": "model.Ingredient@38704ff0"
+            "name": "Ingredient2"
         }
     ]
 }]
