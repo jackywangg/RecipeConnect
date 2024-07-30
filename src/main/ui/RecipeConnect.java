@@ -81,6 +81,7 @@ public class RecipeConnect {
         this.isRunning = false;
     }
 
+    // MODIFIES: ...
     // EFFECTS: Saves current recipe list.
     public void saveRecipes() {
         try {
@@ -93,7 +94,7 @@ public class RecipeConnect {
         }
     }
 
-
+    // MODIFIES: ...
     // EFFECTS: Loads recipe list from previously saved file.
     public void loadRecipes() {
         try {
@@ -139,7 +140,7 @@ public class RecipeConnect {
     }
 
     // EFFECTS: Checks whether recipe name already exists in the recipe list
-    private boolean doesRecipeExist(String recipeName) {
+    public boolean doesRecipeExist(String recipeName) {
         for (Recipe r : recipe) {
             if (r.getRecipeName().equals(recipeName)) {
                 return true;
@@ -235,7 +236,6 @@ public class RecipeConnect {
             }
         }
     }
-    
 
     // REQUIRES: newRecipe is not null
     // MODIFIES: newRecipe
@@ -284,6 +284,10 @@ public class RecipeConnect {
         System.out.println("");
         System.out.println("s: Save recipe(s)");
         System.out.println("l: Load existing file");
+    }
+
+    public List<Recipe> getRecipeList() {
+        return recipe;
     }
 
     // MODIFIES: this
