@@ -81,6 +81,7 @@ public class RecipeConnect {
         this.isRunning = false;
     }
 
+    // EFFECTS: Saves current recipe list.
     public void saveRecipes() {
         try {
             jsonWriter.open();
@@ -92,7 +93,9 @@ public class RecipeConnect {
         }
     }
 
-    private void loadRecipes() {
+
+    // EFFECTS: Loads recipe list from previously saved file.
+    public void loadRecipes() {
         try {
             recipe = jsonReader.read();
             System.out.println("Loaded recipes from " + JSON_STORE);
