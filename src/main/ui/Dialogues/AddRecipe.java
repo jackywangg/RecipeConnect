@@ -32,14 +32,15 @@ public class AddRecipe extends JDialog {
         JPanel formPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-        addLabelAndTextField(formPanel, gbc, "Recipe Name:", 0, recipeNameField = new JTextField(20));
-        addLabelAndTextField(formPanel, gbc, "Ingredient Name:", 1, ingredientNameField = new JTextField(20));
-        addLabelAndTextField(formPanel, gbc, "Ingredient Quantity:", 2, ingredientQuantityField = new JTextField(20));
+        addLabelField(formPanel, gbc, "Recipe Name:", 0, recipeNameField = new JTextField(20));
+        addLabelField(formPanel, gbc, "Ingredient Name:", 1, ingredientNameField = new JTextField(20));
+        addLabelField(formPanel, gbc, "Ingredient Quantity (incl. measurement):", 2,
+                ingredientQuantityField = new JTextField(20));
         addAddButton(formPanel, gbc, 3, "Add Ingredient", e -> addIngredient());
         ingredientsModel = new DefaultListModel<>();
         ingredientsList = new JList<>(ingredientsModel);
         addScrollPane(formPanel, gbc, 4, ingredientsList);
-        addLabelAndTextField(formPanel, gbc, "Instructions:", 5, instructionField = new JTextField(20));
+        addLabelField(formPanel, gbc, "Instructions:", 5, instructionField = new JTextField(20));
         addAddButton(formPanel, gbc, 6, "Add Instruction", e -> addInstruction());
         instructionsModel = new DefaultListModel<>();
         instructionsList = new JList<>(instructionsModel);
@@ -50,12 +51,12 @@ public class AddRecipe extends JDialog {
         setLocationRelativeTo(getParent());
     }
 
-    private void addLabelAndTextField(JPanel panel, GridBagConstraints gbc, String labelText, int y, JTextField textField) {
+    private void addLabelField(JPanel panel, GridBagConstraints gbc, String labelText, int y,
+            JTextField textField) {
         gbc.gridx = 0;
         gbc.gridy = y;
         gbc.anchor = GridBagConstraints.EAST;
         panel.add(new JLabel(labelText), gbc);
-
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.WEST;
         panel.add(textField, gbc);

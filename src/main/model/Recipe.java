@@ -113,11 +113,13 @@ public class Recipe implements Writable {
     // EFFECTS: Gets recipe details, including ingredients and instructions.
     public String getRecipeDetails() {
         StringBuilder details = new StringBuilder();
+        int i = 1;
         details.append("Recipe Name: ").append(recipeName).append("\n\n");
         details.append(getIngredients()).append("\n");
         details.append("Instructions:\n");
         for (String instruction : recipeInstructions) {
-            details.append("- ").append(instruction).append("\n");
+            details.append(i + ". ").append(instruction).append("\n");
+            i++;
         }
         return details.toString();
     }
