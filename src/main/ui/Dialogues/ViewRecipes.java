@@ -58,6 +58,10 @@ public class ViewRecipes extends JDialog {
 
     // EFFECTS: Information upon selecting a recipe
     private void showRecipeDialog(String message) {
-        JOptionPane.showMessageDialog(this, message, "Recipe Details", JOptionPane.PLAIN_MESSAGE);
+        ImageIcon i = new ImageIcon("src\\main\\ui\\food icon.jpg");
+        Image newImage = i.getImage();
+        Image newImageIcon = newImage.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH);
+        ImageIcon imageIcon = new ImageIcon(newImageIcon);
+        JOptionPane.showMessageDialog(this, message, "Recipe Details", JOptionPane.PLAIN_MESSAGE, imageIcon);
     }
 }

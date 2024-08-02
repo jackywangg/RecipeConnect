@@ -43,7 +43,7 @@ public class RecipeConnectGUI {
         });
         frame.add(panel, BorderLayout.CENTER);
         ImageIcon image = new ImageIcon(
-                "C:\\Users\\Lenovo\\Desktop\\ProjectStarter\\src\\main\\ui\\RecipeConnectLogo.png");
+                "src\\main\\ui\\RecipeConnectLogo.png");
         frame.setIconImage(image.getImage());
         frame.setVisible(true);
     }
