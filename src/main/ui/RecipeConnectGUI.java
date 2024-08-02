@@ -1,23 +1,28 @@
 package ui;
 
 import javax.swing.*;
+import ui.Dialogues.AddRecipe;
+import ui.Dialogues.ViewRecipes;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// GUI for Recipe Connect
 public class RecipeConnectGUI {
     public static final int WIDTH = 600;
     public static final int HEIGHT = 500;
 
     private JFrame frame;
     private JPanel panel;
+    private RecipeConnect recipeConnect;
 
     public static void main(String[] args) {
-        new RecipeConnectGUI();
+        SwingUtilities.invokeLater(() -> {
+            new RecipeConnectGUI();
+        });
     }
 
     public RecipeConnectGUI() {
+        recipeConnect = new RecipeConnect();  
         frame = new JFrame("Recipe Connect");
         panel = new JPanel();
 
@@ -27,19 +32,22 @@ public class RecipeConnectGUI {
 
         panel.setLayout(new GridLayout(7, 1));
 
-        addButton("Add Recipe", e -> showDummyMessage("Add Recipe button clicked"));
+        addButton("Add Recipe", e -> openAddRecipe());
         addButton("Delete Recipe", e -> showDummyMessage("Delete Recipe button clicked"));
-        addButton("View All Recipes", e -> showDummyMessage("View All Recipes button clicked"));
+        addButton("View All Recipes", e -> openViewRecipes());
         addButton("Save Recipes", e -> showDummyMessage("Save Recipes button clicked"));
         addButton("Load Recipes", e -> showDummyMessage("Load Recipes button clicked"));
-        addButton("Exit", e -> showDummyMessage("Exit button clicked"));
+        addButton("Exit", e -> {
+            frame.dispose();
+            System.exit(0);
+        });
 
         frame.add(panel, BorderLayout.CENTER);
-        frame.setVisible(true);
 
-        ImageIcon image = new ImageIcon(
-                "C:\\Users\\Lenovo\\Desktop\\ProjectStarter\\src\\main\\ui\\RecipeConnectLogo.png");
+        ImageIcon image = new ImageIcon("C:\\Users\\Lenovo\\Desktop\\ProjectStarter\\src\\main\\ui\\RecipeConnectLogo.png");
         frame.setIconImage(image.getImage());
+
+        frame.setVisible(true);
     }
 
     private void addButton(String text, ActionListener actionListener) {
@@ -50,5 +58,15 @@ public class RecipeConnectGUI {
 
     private void showDummyMessage(String message) {
         JOptionPane.showMessageDialog(frame, message);
+    }
+
+    private void openAddRecipe() {
+        AddRecipe addRecipe = new AddRecipe(frame, recipeConnect);
+        addRecipe.setVisible(true);
+    }
+
+    private void openViewRecipes() {
+        ViewRecipes viewRecipes = new ViewRecipes(frame, recipeConnect);
+        viewRecipes.setVisible(true);
     }
 }

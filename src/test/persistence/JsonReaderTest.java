@@ -18,7 +18,7 @@ class JsonReaderTest extends JsonTest {
             List<Recipe> recipes = reader.read();
             fail("IOException expected");
         } catch (IOException e) {
-            // pass
+            // expected
         }
     }
 

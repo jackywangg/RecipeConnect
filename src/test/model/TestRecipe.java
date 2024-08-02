@@ -79,16 +79,54 @@ public class TestRecipe {
     }
 
     @Test
-    void testGetIngredientsEmpty() {
-        assertEquals(recipe.getListOfIngredients().size(), 0);
-        assertEquals(recipe.getIngredients(), "There are no ingredients.");
+    void testGetRecipeDetailsNoIngredientsNoInstructions() {
+        String expected = "Recipe Name: curry\n\n" +
+                "There are no ingredients.\n" +
+                "Instructions:\n";
+        assertEquals(expected, recipe.getRecipeDetails());
     }
 
     @Test
-    void testGetIngredientsMultiple() {
+    void testGetRecipeDetailsWithIngredientsNoInstructions() {
         recipe.addIngredient(recipeSalt);
         recipe.addIngredient(recipePepper);
-        assertEquals(recipe.getIngredients(), "That is all the ingredients in this recipe.");
+
+        String expected = "Recipe Name: curry\n\n" +
+                "Ingredients:\n" +
+                "Salt: 10\n" +
+                "Black Pepper: 20\n\n" +
+                "Instructions:\n";
+        assertEquals(expected, recipe.getRecipeDetails());
+    }
+
+    @Test
+    void testGetRecipeDetailsWithIngredientsAndInstructions() {
+        recipe.addIngredient(recipeSalt);
+        recipe.addIngredient(recipePepper);
+        recipe.addInstruction("Mix the salt and pepper.");
+        recipe.addInstruction("Cook for 10 minutes.");
+
+        String expected = "Recipe Name: curry\n\n" +
+                "Ingredients:\n" +
+                "Salt: 10\n" +
+                "Black Pepper: 20\n\n" +
+                "Instructions:\n" +
+                "- Mix the salt and pepper.\n" +
+                "- Cook for 10 minutes.\n";
+        assertEquals(expected, recipe.getRecipeDetails());
+    }
+
+    @Test
+    void testGetRecipeDetailsWithNoIngredientsWithInstructions() {
+        recipe.addInstruction("Mix the salt and pepper.");
+        recipe.addInstruction("Cook for 10 minutes.");
+
+        String expected = "Recipe Name: curry\n\n" +
+                "There are no ingredients.\n" +
+                "Instructions:\n" +
+                "- Mix the salt and pepper.\n" +
+                "- Cook for 10 minutes.\n";
+        assertEquals(expected, recipe.getRecipeDetails());
     }
 
     @Test

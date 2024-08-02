@@ -21,7 +21,7 @@ class JsonWriterTest extends JsonTest {
             writer.open();
             fail("FileNotFoundException expected");
         } catch (FileNotFoundException e) {
-            // pass
+            // expected
         }
     }
 

@@ -64,11 +64,14 @@ public class Recipe implements Writable {
         if (listOfIngredients.isEmpty()) {
             return "There are no ingredients.";
         } else {
-            System.out.println("Number of Ingredients: " + listOfIngredients.size());
+            StringBuilder sb = new StringBuilder("Ingredients:\n");
             for (RecipeIngredient ri : listOfIngredients) {
-                System.out.print(ri + ", ");
+                sb.append(ri.getIngredient().getName())
+                        .append(": ")
+                        .append(ri.getQuantity())
+                        .append("\n");
             }
-            return "That is all the ingredients in this recipe.";
+            return sb.toString();
         }
     }
 
@@ -105,6 +108,18 @@ public class Recipe implements Writable {
             }
             return "";
         }
+    }
+
+    // EFFECTS: Gets recipe details, including ingredients and instructions.
+    public String getRecipeDetails() {
+        StringBuilder details = new StringBuilder();
+        details.append("Recipe Name: ").append(recipeName).append("\n\n");
+        details.append(getIngredients()).append("\n");
+        details.append("Instructions:\n");
+        for (String instruction : recipeInstructions) {
+            details.append("- ").append(instruction).append("\n");
+        }
+        return details.toString();
     }
 
     public String getRecipeName() {
@@ -145,7 +160,7 @@ public class Recipe implements Writable {
         }
         return jsonArray;
     }
-    
+
     private JSONArray instructionsToJson() {
         JSONArray jsonArray = new JSONArray();
         for (String instruction : recipeInstructions) {
@@ -153,5 +168,5 @@ public class Recipe implements Writable {
         }
         return jsonArray;
     }
-    
+
 }
