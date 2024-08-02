@@ -24,10 +24,10 @@ public class AddRecipe extends JDialog {
     public AddRecipe(JFrame parent, RecipeConnect recipeConnect) {
         super(parent, "Add Recipe", true);
         this.recipeConnect = recipeConnect;
-        setupForm();
+        setup();
     }
 
-    private void setupForm() {
+    private void setup() {
         setLayout(new BorderLayout());
         JPanel formPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();

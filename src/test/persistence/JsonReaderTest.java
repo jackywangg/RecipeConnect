@@ -39,7 +39,6 @@ class JsonReaderTest extends JsonTest {
         try {
             List<Recipe> recipes = reader.read();
             assertEquals(1, recipes.size());
-
             Recipe recipe = recipes.get(0);
             checkRecipe("Recipe1", recipe);
             List<RecipeIngredient> ingredients = recipe.getListOfIngredients();
@@ -58,14 +57,12 @@ class JsonReaderTest extends JsonTest {
         try {
             List<Recipe> recipes = reader.read();
             assertEquals(2, recipes.size());
-
             Recipe recipe1 = recipes.get(0);
             checkRecipe("Recipe1", recipe1);
             List<RecipeIngredient> ingredients1 = recipe1.getListOfIngredients();
             assertEquals(2, ingredients1.size());
             checkRecipeIngredient("Ingredient1", "1 cup", ingredients1.get(0));
             checkRecipeIngredient("Ingredient2", "2 tsp", ingredients1.get(1));
-
             Recipe recipe2 = recipes.get(1);
             checkRecipe("Recipe2", recipe2);
             List<RecipeIngredient> ingredients2 = recipe2.getListOfIngredients();
