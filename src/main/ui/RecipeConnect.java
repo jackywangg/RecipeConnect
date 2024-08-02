@@ -9,6 +9,7 @@ import model.Recipe;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+// Class to support RecipeConnect's GUI
 public class RecipeConnect {
     private List<Recipe> recipes;
     private Random random;
@@ -16,12 +17,14 @@ public class RecipeConnect {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    // EFFECTS: Initializes RecipeConnect
     public RecipeConnect() {
         initialize();
         this.jsonReader = new JsonReader(JSON_STORE);
         this.jsonWriter = new JsonWriter(JSON_STORE);
     }
 
+    // EFFECTS: Chooses random recipe within recipe list.
     public void randomRecipe() {
         if (!recipes.isEmpty()) {
             System.out.println(recipes.get(random.nextInt(recipes.size())));
@@ -30,6 +33,7 @@ public class RecipeConnect {
         }
     }
 
+    // EFFECTS: Saves current list of recipes
     public void saveRecipes() {
         try {
             jsonWriter.open();
@@ -41,6 +45,7 @@ public class RecipeConnect {
         }
     }
 
+    // EFFECTS: Loads recipes from saved file
     public void loadRecipes() {
         try {
             recipes = jsonReader.read();
@@ -50,6 +55,7 @@ public class RecipeConnect {
         }
     }
 
+    // EFFECTS: Prints all recipes in recipe list
     public void printAllRecipes() {
         int index = 1;
         System.out.println("List of recipes:");
@@ -59,6 +65,7 @@ public class RecipeConnect {
         }
     }
 
+    // EFFECTS: Deletes selected recipe
     public void deleteRecipe(int index) {
         if (index >= 0 && index < recipes.size()) {
             recipes.remove(index);
@@ -68,6 +75,7 @@ public class RecipeConnect {
         }
     }
 
+    // EFFECTS: Checks if recipe name already exists
     public boolean doesRecipeExist(String recipeName) {
         for (Recipe r : recipes) {
             if (r.getRecipeName().equalsIgnoreCase(recipeName)) {
@@ -77,10 +85,12 @@ public class RecipeConnect {
         return false;
     }
 
+    // EFFECTS: Returns list of recipes
     public List<Recipe> getRecipeList() {
         return recipes;
     }
 
+    // EFFECTS: Initializes new list of recipes and random function
     private void initialize() {
         this.recipes = new ArrayList<>();
         random = new Random();
