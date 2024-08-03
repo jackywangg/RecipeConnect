@@ -67,7 +67,7 @@ public class ViewRecipes extends JDialog {
 
     // EFFECTS: Information upon selecting a recipe
     private void showRecipeDialog(String message) {
-        ImageIcon i = new ImageIcon("Pictures\\food icon.jpg");
+        ImageIcon i = new ImageIcon("pictures\\food icon.jpg");
         Image newImage = i.getImage();
         Image newImageIcon = newImage.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
         ImageIcon imageIcon = new ImageIcon(newImageIcon);
@@ -83,7 +83,7 @@ public class ViewRecipes extends JDialog {
             JOptionPane.showMessageDialog(this, randomRecipe.getRecipeDetails(), "Random Recipe Details",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
-            ImageIcon i = new ImageIcon("Pictures\\SadFace No Random Recipes.png");
+            ImageIcon i = new ImageIcon("pictures\\SadFace No Random Recipes.png");
             Image newImage = i.getImage();
             Image newImageIcon = newImage.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
             ImageIcon imageIcon = new ImageIcon(newImageIcon);

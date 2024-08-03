@@ -46,7 +46,7 @@ public class RecipeConnectGUI {
         frame.add(panel, BorderLayout.CENTER);
         frame.add(recipeConnectLabel(), BorderLayout.NORTH);
         ImageIcon image = new ImageIcon(
-                "Pictures\\RecipeConnectLogo.png");
+                "pictures\\RecipeConnectLogo.png");
         frame.setIconImage(image.getImage());
         frame.setVisible(true);
     }
