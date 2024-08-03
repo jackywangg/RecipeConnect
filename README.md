@@ -21,4 +21,6 @@ The focus group for this project are **students** or **homecooks** - those who p
 - You can generate the second required action related to the user story by clicking on 
 - You can save the state of my application by clicking on the "Save Recipes" button on the main page
 - You can reload the state of my application by clicking on the "Load Recipes" button on the main page.
-- You can locate two visual components by: (1) having an empty recipe list and clicking on "View Recipes" -> "Random Recipe", to which you will see a sad image to the left of "No recipes available."; (2) Adding a recipe, then clicking on "View Recipes" -> Select a Recipe then click "View Recipe," to which you will see a cutlery image to the left.
+- You can locate two visual components by: 
+    - (1) having an empty recipe list and clicking on "View Recipes" -> "Random Recipe", to which you will see a sad image to the left of "No recipes available."; 
+    - (2) Adding a recipe, then clicking on "View Recipes" -> Select a Recipe then click "View Recipe," to which you will see a cutlery image to the left.
