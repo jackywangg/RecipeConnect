@@ -101,7 +101,7 @@ public class ViewRecipes extends JDialog {
             if (response == JOptionPane.YES_OPTION) {
                 recipeConnect.getRecipeList().remove(selectedRecipe);
                 listModel.removeElement(selectedRecipe);
-                JOptionPane.showMessageDialog(this, "Recipe deleted successfully.", "Deleted",
+                JOptionPane.showMessageDialog(this, "Recipe deleted successfully!", "Deleted",
                         JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
