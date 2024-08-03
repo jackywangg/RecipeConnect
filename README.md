@@ -15,3 +15,10 @@ The focus group for this project are **students** or **homecooks** - those who p
 
 - As a user, I want to be able to save the collection of my recipes (and its contents - i.e., ingredients and instructions) to a file.
 - As a user, I want to be able to re-load my saved file and resume where I left off; otherwise, have the option to create a new file instance.
+
+## **Instructions for Grader**
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking on the "Add Recipe" button, which creates and adds a recipe to a list of recipes.
+- You can generate the second required action related to the user story by clicking on 
+- You can save the state of my application by clicking on the "Save Recipes" button on the main page
+- You can reload the state of my application by clicking on the "Load Recipes" button on the main page.
+- You can locate two visual components by: (1) having an empty recipe list and clicking on "View Recipes" -> "Random Recipe", to which you will see a sad image to the left of "No recipes available."; (2) Adding a recipe, then clicking on "View Recipes" -> Select a Recipe then click "View Recipe," to which you will see a cutlery image to the left.
