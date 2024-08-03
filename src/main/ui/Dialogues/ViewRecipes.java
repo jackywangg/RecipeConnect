@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+import java.util.List;
 
 // Class for Viewing Recipe(s) Function
 public class ViewRecipes extends JDialog {
@@ -40,10 +42,17 @@ public class ViewRecipes extends JDialog {
     // EFFECTS: Sets up the button & panel for ViewRecipe
     private void setupButtonPanel() {
         JButton viewButton = new JButton("View Recipe");
+        JButton randomRecipeButton = new JButton("Random Recipe");
+        JButton deleteARecipe = new JButton("Delete a Recipe");
         viewButton.addActionListener(e -> viewRecipe());
+        randomRecipeButton.addActionListener(e -> viewRandomRecipe());
+        deleteARecipe.addActionListener(e -> deleteRecipe());
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(viewButton);
+        buttonPanel.add(randomRecipeButton);
+        buttonPanel.add(deleteARecipe);
         add(buttonPanel, BorderLayout.SOUTH);
+
     }
 
     // EFFECTS: Panels involving the view recipe function when selected.
@@ -60,8 +69,44 @@ public class ViewRecipes extends JDialog {
     private void showRecipeDialog(String message) {
         ImageIcon i = new ImageIcon("src\\main\\ui\\food icon.jpg");
         Image newImage = i.getImage();
-        Image newImageIcon = newImage.getScaledInstance(60, 60,  java.awt.Image.SCALE_SMOOTH);
+        Image newImageIcon = newImage.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
         ImageIcon imageIcon = new ImageIcon(newImageIcon);
         JOptionPane.showMessageDialog(this, message, "Recipe Details", JOptionPane.PLAIN_MESSAGE, imageIcon);
+    }
+
+    // EFFECTS: Selects a random recipe and displays its details.
+    private void viewRandomRecipe() {
+        List<Recipe> recipes = recipeConnect.getRecipeList();
+        if (!recipes.isEmpty()) {
+            Random random = new Random();
+            Recipe randomRecipe = recipes.get(random.nextInt(recipes.size()));
+            JOptionPane.showMessageDialog(this, randomRecipe.getRecipeDetails(), "Random Recipe Details",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            ImageIcon i = new ImageIcon("src\\main\\ui\\SadFace No Random Recipes.png");
+            Image newImage = i.getImage();
+            Image newImageIcon = newImage.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon imageIcon = new ImageIcon(newImageIcon);
+            JOptionPane.showMessageDialog(this, "No recipes available.", "Error", JOptionPane.ERROR_MESSAGE, imageIcon);
+        }
+    }
+
+    // EFFECTS: Deletes the selected recipe from the list.
+    private void deleteRecipe() {
+        Recipe selectedRecipe = recipeList.getSelectedValue();
+        if (selectedRecipe != null) {
+            int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this recipe?",
+                    "Confirm Delete",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                recipeConnect.getRecipeList().remove(selectedRecipe);
+                listModel.removeElement(selectedRecipe);
+                JOptionPane.showMessageDialog(this, "Recipe deleted successfully.", "Deleted",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a recipe to delete.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

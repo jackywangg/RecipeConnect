@@ -33,7 +33,6 @@ public class RecipeConnectGUI {
         frame.setLayout(new BorderLayout());
         panel.setLayout(new GridLayout(7, 1));
         addButton("Add Recipe", e -> openAddRecipe());
-        addButton("Delete Recipe", e -> showDummyMessage("Delete Recipe button clicked"));
         addButton("View All Recipes", e -> openViewRecipes());
         addButton("Save Recipes", e -> showDummyMessage("Save Recipes button clicked"));
         addButton("Load Recipes", e -> showDummyMessage("Load Recipes button clicked"));
