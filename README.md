@@ -18,7 +18,8 @@ The focus group for this project are **students** or **homecooks** - those who p
 
 ## **Instructions for Grader**
 - You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking on the "Add Recipe" button, which creates and adds a recipe to a list of recipes.
-- You can generate the second required action related to the user story by clicking on 
+- You can generate the second required action related to the user story "removing an X from Y" by clicking on "View All Recipes" -> select a recipe then click on "Delete a Recipe".
+    - Additionally, you can generate a random X from Y by clicking on the "Random Recipe" button, assuming there are at least one recipe in the list.
 - You can save the state of my application by clicking on the "Save Recipes" button on the main page
 - You can reload the state of my application by clicking on the "Load Recipes" button on the main page.
 - You can locate two visual components by: 

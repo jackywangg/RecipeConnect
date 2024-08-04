@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// AddRecipe function for RecipeConnectGUI
+// Represents the AddRecipe function for RecipeConnect's GUI
 public class AddRecipe extends JDialog {
     private RecipeConnect recipeConnect;
     private JTextField recipeNameField;
@@ -29,7 +29,7 @@ public class AddRecipe extends JDialog {
         setup();
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Constructor sets up main menu (title and button panel)
     private void setup() {
         setLayout(new BorderLayout());
         JPanel formPanel = new JPanel(new GridBagLayout());
@@ -49,12 +49,12 @@ public class AddRecipe extends JDialog {
         instructionsList = new JList<>(instructionsModel);
         addScrollPane(formPanel, gbc, 7, instructionsList);
         add(formPanel, BorderLayout.CENTER);
-        addButtonPanel();
+        addButtonAddRecipePanel();
         pack();
         setLocationRelativeTo(getParent());
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Constructs the labels and fields for RecipeConnect
     private void addLabelField(JPanel panel, GridBagConstraints gbc, String labelText, int y,
             JTextField textField) {
         gbc.gridx = 0;
@@ -66,7 +66,7 @@ public class AddRecipe extends JDialog {
         panel.add(textField, gbc);
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Adds a button to a specific panel
     private void addAddButton(JPanel panel, GridBagConstraints gbc, int y, String buttonText, ActionListener listener) {
         gbc.gridx = 1;
         gbc.gridy = y;
@@ -76,7 +76,7 @@ public class AddRecipe extends JDialog {
         panel.add(button, gbc);
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Adds the scroll pane for the GUI, enabling ability to scroll.
     private void addScrollPane(JPanel panel, GridBagConstraints gbc, int y, JList<String> list) {
         gbc.gridx = 0;
         gbc.gridy = y;
@@ -85,22 +85,22 @@ public class AddRecipe extends JDialog {
         panel.add(new JScrollPane(list), gbc);
     }
 
-    // EFFECTS: ...
-    private void addButtonPanel() {
+    // EFFECTS: Adds the bottom two buttons in the AddRecipe panel.
+    private void addButtonAddRecipePanel() {
         JPanel buttonPanel = new JPanel(new FlowLayout());
         addButton(buttonPanel, "Add Recipe", new AddRecipeActionListener());
         addButton(buttonPanel, "Cancel", e -> dispose());
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Adds button to panel
     private void addButton(JPanel panel, String text, ActionListener listener) {
         JButton button = new JButton(text);
         button.addActionListener(listener);
         panel.add(button);
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Adds ingredient (name and quantity) to a list of ingredients
     private void addIngredient() {
         String ingredientName = ingredientNameField.getText();
         String ingredientQuantity = ingredientQuantityField.getText();
@@ -111,7 +111,7 @@ public class AddRecipe extends JDialog {
         }
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Adds instruction to a list of instruction
     private void addInstruction() {
         String instruction = instructionField.getText();
         if (!instruction.isEmpty()) {
@@ -120,7 +120,7 @@ public class AddRecipe extends JDialog {
         }
     }
 
-    // EFFECTS: ...
+    // EFFECTS: Adds non-duplicate recipes to recipe list.
     private void addRecipe() {
         String recipeName = recipeNameField.getText();
         if (!recipeName.isEmpty()) {
@@ -145,8 +145,9 @@ public class AddRecipe extends JDialog {
             JOptionPane.showMessageDialog(this, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    // EFFECTS: ...
+
+    // EFFECTS: Private inner class that implmenets ActionListener
+    // Handles the action of addRecipe when button is presed.
     private class AddRecipeActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

@@ -124,6 +124,24 @@ public class Recipe implements Writable {
         return details.toString();
     }
 
+    // EFFECTS: returns ingredients in this list as a JSON array
+    private JSONArray ingredientsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (RecipeIngredient ingredient : listOfIngredients) {
+            jsonArray.put(ingredient.toJson());
+        }
+        return jsonArray;
+    }
+
+    // EFFECTS: Returns instructions in this list as a JSON array
+    private JSONArray instructionsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (String instruction : recipeInstructions) {
+            jsonArray.put(instruction);
+        }
+        return jsonArray;
+    }
+
     public String getRecipeName() {
         return recipeName;
     }
@@ -152,23 +170,6 @@ public class Recipe implements Writable {
         json.put("ingredients", ingredientsToJson());
         json.put("instructions", instructionsToJson());
         return json;
-    }
-
-    // EFFECTS: returns things in this workroom as a JSON array
-    private JSONArray ingredientsToJson() {
-        JSONArray jsonArray = new JSONArray();
-        for (RecipeIngredient ingredient : listOfIngredients) {
-            jsonArray.put(ingredient.toJson());
-        }
-        return jsonArray;
-    }
-
-    private JSONArray instructionsToJson() {
-        JSONArray jsonArray = new JSONArray();
-        for (String instruction : recipeInstructions) {
-            jsonArray.put(instruction);
-        }
-        return jsonArray;
     }
 
 }

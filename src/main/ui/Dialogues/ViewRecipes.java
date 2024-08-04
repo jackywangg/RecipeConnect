@@ -10,20 +10,20 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.List;
 
-// Class for Viewing Recipe(s) Function
+// Represents the "View Recipes" Function in GUI
 public class ViewRecipes extends JDialog {
     private RecipeConnect recipeConnect;
     private JList<Recipe> recipeList;
     private DefaultListModel<Recipe> listModel;
 
-    // EFFECTS: Constructs ViewRecipes function
+    // EFFECTS: Sets up the ViewRecipes function
     public ViewRecipes(JFrame parent, RecipeConnect recipeConnect) {
         super(parent, "View All Recipes", true);
         this.recipeConnect = recipeConnect;
         setup();
     }
 
-    // EFFECTS: Sets up ViewRecipe Selection
+    // EFFECTS: Sets up ViewRecipe Panel
     private void setup() {
         setLayout(new BorderLayout());
         listModel = new DefaultListModel<>();
@@ -39,7 +39,7 @@ public class ViewRecipes extends JDialog {
         setLocationRelativeTo(getParent());
     }
 
-    // EFFECTS: Sets up the button & panel for ViewRecipe
+    // EFFECTS: Sets up ViewRecipe's bottom button fields
     private void setupButtonPanel() {
         JButton viewButton = new JButton("View Recipe");
         JButton randomRecipeButton = new JButton("Random Recipe");
@@ -55,7 +55,7 @@ public class ViewRecipes extends JDialog {
 
     }
 
-    // EFFECTS: Panels involving the view recipe function when selected.
+    // EFFECTS: Facilitates the "View Recipe" button.
     private void viewRecipe() {
         Recipe selectedRecipe = recipeList.getSelectedValue();
         if (selectedRecipe != null) {
@@ -65,7 +65,7 @@ public class ViewRecipes extends JDialog {
         }
     }
 
-    // EFFECTS: Information upon selecting a recipe
+    // EFFECTS: Produces dialog upon selecting a recipe
     private void showRecipeDialog(String message) {
         ImageIcon i = new ImageIcon("pics\\food icon.jpg");
         Image newImage = i.getImage();
@@ -74,7 +74,7 @@ public class ViewRecipes extends JDialog {
         JOptionPane.showMessageDialog(this, message, "Recipe Details", JOptionPane.PLAIN_MESSAGE, imageIcon);
     }
 
-    // EFFECTS: Selects a random recipe and displays its details.
+    // EFFECTS: Application selects a random recipe and displays its details.
     private void viewRandomRecipe() {
         List<Recipe> recipes = recipeConnect.getRecipeList();
         if (!recipes.isEmpty()) {
