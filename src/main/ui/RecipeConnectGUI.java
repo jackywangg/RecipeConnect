@@ -18,7 +18,8 @@ public class RecipeConnectGUI {
     private JPanel panel;
     private RecipeConnect recipeConnect;
 
-    // EFFECTS: Initializes frame and panel and modifies the frame to add buttons and labels.
+    // EFFECTS: Initializes frame and panel and modifies the frame to add buttons
+    // and labels.
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             new RecipeConnectGUI();
@@ -83,8 +84,13 @@ public class RecipeConnectGUI {
     // EFFECTS: Allows user to save current recipe
     private void saveRecipes() {
         recipeConnect.saveRecipes();
+        ImageIcon i = new ImageIcon(
+                "pics\\save icon.jpg");
+        Image newImage = i.getImage();
+        Image newImageIcon = newImage.getScaledInstance(60, 60, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon imageIcon = new ImageIcon(newImageIcon);
         JOptionPane.showMessageDialog(frame, "Recipes have been saved", "Save Recipes",
-                JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.INFORMATION_MESSAGE, imageIcon);
     }
 
     // MODIFIES: recipeConnect (loads recipes)
