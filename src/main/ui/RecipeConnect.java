@@ -9,7 +9,7 @@ import model.Recipe;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
-// Class to support RecipeConnect's GUI
+// Represents the underlying functions that support RecipeConnect's GUI
 public class RecipeConnect {
     private List<Recipe> recipes;
     private Random random;
@@ -33,7 +33,8 @@ public class RecipeConnect {
         }
     }
 
-    // EFFECTS: Saves current list of recipes
+    // MODIFIES: this
+    // EFFECTS: Saves current list of recipes, and prints corresponding message
     public void saveRecipes() {
         try {
             jsonWriter.open();
@@ -45,7 +46,8 @@ public class RecipeConnect {
         }
     }
 
-    // EFFECTS: Loads recipes from saved file
+    // MODIFIES: this
+    // EFFECTS: Loads recipes from saved file, and prints corresponding message
     public void loadRecipes() {
         try {
             recipes = jsonReader.read();
@@ -65,7 +67,8 @@ public class RecipeConnect {
         }
     }
 
-    // EFFECTS: Deletes selected recipe
+    // MODIFIES: this
+    // EFFECTS: Deletes selected recipe, and prints message
     public void deleteRecipe(int index) {
         if (index >= 0 && index < recipes.size()) {
             recipes.remove(index);
@@ -90,6 +93,7 @@ public class RecipeConnect {
         return recipes;
     }
 
+    // MODIFIES: this
     // EFFECTS: Initializes new list of recipes and random function
     private void initialize() {
         this.recipes = new ArrayList<>();

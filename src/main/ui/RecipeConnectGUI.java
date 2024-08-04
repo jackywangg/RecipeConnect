@@ -18,7 +18,7 @@ public class RecipeConnectGUI {
     private JPanel panel;
     private RecipeConnect recipeConnect;
 
-    // EFFECTS: Initializes GUI
+    // EFFECTS: Initializes frame and panel and modifies the frame to add buttons and labels.
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             new RecipeConnectGUI();
@@ -46,7 +46,7 @@ public class RecipeConnectGUI {
         frame.add(panel, BorderLayout.CENTER);
         frame.add(recipeConnectLabel(), BorderLayout.NORTH);
         ImageIcon image = new ImageIcon(
-                "pics\\RecipeConnectLogo.png");
+                "pics\\RecipeConnectLogo.png.png");
         frame.setIconImage(image.getImage());
         frame.setVisible(true);
     }
@@ -59,6 +59,7 @@ public class RecipeConnectGUI {
         return title;
     }
 
+    // MODIFIES: this.panel
     // EFFECTS: Adds new button
     private void addButton(String text, ActionListener actionListener) {
         JButton button = new JButton(text);
@@ -78,6 +79,7 @@ public class RecipeConnectGUI {
         viewRecipes.setVisible(true);
     }
 
+    // MODIFIES: recipeConnect (saves recipes)
     // EFFECTS: Allows user to save current recipe
     private void saveRecipes() {
         recipeConnect.saveRecipes();
@@ -85,6 +87,7 @@ public class RecipeConnectGUI {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // MODIFIES: recipeConnect (loads recipes)
     // EFFECTS: Allows user to load previously saved recipe
     private void loadRecipes() {
         recipeConnect.loadRecipes();

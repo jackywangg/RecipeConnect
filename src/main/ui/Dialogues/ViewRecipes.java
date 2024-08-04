@@ -23,6 +23,7 @@ public class ViewRecipes extends JDialog {
         setup();
     }
 
+    // MODIFIES: this
     // EFFECTS: Sets up ViewRecipe Panel
     private void setup() {
         setLayout(new BorderLayout());
@@ -39,6 +40,7 @@ public class ViewRecipes extends JDialog {
         setLocationRelativeTo(getParent());
     }
 
+    // MODIFIES: this
     // EFFECTS: Sets up ViewRecipe's bottom button fields
     private void setupButtonPanel() {
         JButton viewButton = new JButton("View Recipe");
@@ -55,6 +57,7 @@ public class ViewRecipes extends JDialog {
 
     }
 
+    // MODIFIES: this
     // EFFECTS: Facilitates the "View Recipe" button.
     private void viewRecipe() {
         Recipe selectedRecipe = recipeList.getSelectedValue();
@@ -65,6 +68,7 @@ public class ViewRecipes extends JDialog {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: Produces dialog upon selecting a recipe
     private void showRecipeDialog(String message) {
         ImageIcon i = new ImageIcon("pics\\food icon.jpg");
@@ -74,6 +78,7 @@ public class ViewRecipes extends JDialog {
         JOptionPane.showMessageDialog(this, message, "Recipe Details", JOptionPane.PLAIN_MESSAGE, imageIcon);
     }
 
+    // MODIFIES: this
     // EFFECTS: Application selects a random recipe and displays its details.
     private void viewRandomRecipe() {
         List<Recipe> recipes = recipeConnect.getRecipeList();
@@ -91,6 +96,7 @@ public class ViewRecipes extends JDialog {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: Deletes the selected recipe from the list.
     private void deleteRecipe() {
         Recipe selectedRecipe = recipeList.getSelectedValue();

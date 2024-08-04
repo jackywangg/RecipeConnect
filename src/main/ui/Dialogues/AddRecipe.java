@@ -29,6 +29,7 @@ public class AddRecipe extends JDialog {
         setup();
     }
 
+    // MODIFIES: this
     // EFFECTS: Constructor sets up main menu (title and button panel)
     private void setup() {
         setLayout(new BorderLayout());
@@ -54,6 +55,8 @@ public class AddRecipe extends JDialog {
         setLocationRelativeTo(getParent());
     }
 
+
+    // MODIFIES: panel
     // EFFECTS: Constructs the labels and fields for RecipeConnect
     private void addLabelField(JPanel panel, GridBagConstraints gbc, String labelText, int y,
             JTextField textField) {
@@ -66,6 +69,7 @@ public class AddRecipe extends JDialog {
         panel.add(textField, gbc);
     }
 
+    // MODIFIES: panel
     // EFFECTS: Adds a button to a specific panel
     private void addAddButton(JPanel panel, GridBagConstraints gbc, int y, String buttonText, ActionListener listener) {
         gbc.gridx = 1;
@@ -76,6 +80,7 @@ public class AddRecipe extends JDialog {
         panel.add(button, gbc);
     }
 
+    // MODIFIES: panel
     // EFFECTS: Adds the scroll pane for the GUI, enabling ability to scroll.
     private void addScrollPane(JPanel panel, GridBagConstraints gbc, int y, JList<String> list) {
         gbc.gridx = 0;
@@ -85,6 +90,7 @@ public class AddRecipe extends JDialog {
         panel.add(new JScrollPane(list), gbc);
     }
 
+    // MODIFIES: this
     // EFFECTS: Adds the bottom two buttons in the AddRecipe panel.
     private void addButtonAddRecipePanel() {
         JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -93,6 +99,7 @@ public class AddRecipe extends JDialog {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    // MODIFIES: panel
     // EFFECTS: Adds button to panel
     private void addButton(JPanel panel, String text, ActionListener listener) {
         JButton button = new JButton(text);
@@ -100,6 +107,7 @@ public class AddRecipe extends JDialog {
         panel.add(button);
     }
 
+    // MODIFIES: ingredientsModel
     // EFFECTS: Adds ingredient (name and quantity) to a list of ingredients
     private void addIngredient() {
         String ingredientName = ingredientNameField.getText();
@@ -111,6 +119,7 @@ public class AddRecipe extends JDialog {
         }
     }
 
+    // MODIFIES: instructionsModel
     // EFFECTS: Adds instruction to a list of instruction
     private void addInstruction() {
         String instruction = instructionField.getText();
@@ -120,6 +129,7 @@ public class AddRecipe extends JDialog {
         }
     }
 
+    // MODIFIES: recipeConnect
     // EFFECTS: Adds non-duplicate recipes to recipe list.
     private void addRecipe() {
         String recipeName = recipeNameField.getText();
