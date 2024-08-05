@@ -80,9 +80,9 @@ public class TestRecipe {
 
     @Test
     void testGetRecipeDetailsNoIngredientsNoInstructions() {
-        String expected = "Recipe Name: curry\n\n" +
-                "There are no ingredients.\n" +
-                "Instructions:\n";
+        String expected = "Recipe Name: curry\n\n"
+                + "There are no ingredients.\n"
+                + "Instructions:\n";
         assertEquals(expected, recipe.getRecipeDetails());
     }
 
@@ -91,11 +91,11 @@ public class TestRecipe {
         recipe.addIngredient(recipeSalt);
         recipe.addIngredient(recipePepper);
 
-        String expected = "Recipe Name: curry\n\n" +
-                "Ingredients:\n" +
-                "Salt: 10\n" +
-                "Black Pepper: 20\n\n" +
-                "Instructions:\n";
+        String expected = "Recipe Name: curry\n\n"
+                + "Ingredients:\n"
+                + "Salt: 10\n"
+                + "Black Pepper: 20\n\n"
+                + "Instructions:\n";
         assertEquals(expected, recipe.getRecipeDetails());
     }
 
@@ -106,13 +106,13 @@ public class TestRecipe {
         recipe.addInstruction("Mix the salt and pepper.");
         recipe.addInstruction("Cook for 10 minutes.");
 
-        String expected = "Recipe Name: curry\n\n" +
-                "Ingredients:\n" +
-                "Salt: 10\n" +
-                "Black Pepper: 20\n\n" +
-                "Instructions:\n" +
-                "- Mix the salt and pepper.\n" +
-                "- Cook for 10 minutes.\n";
+        String expected = "Recipe Name: curry\n\n"
+                + "Ingredients:\n"
+                + "Salt: 10\n"
+                + "Black Pepper: 20\n\n"
+                + "Instructions:\n"
+                + "1. Mix the salt and pepper.\n"
+                + "2. Cook for 10 minutes.\n";
         assertEquals(expected, recipe.getRecipeDetails());
     }
 
@@ -121,11 +121,11 @@ public class TestRecipe {
         recipe.addInstruction("Mix the salt and pepper.");
         recipe.addInstruction("Cook for 10 minutes.");
 
-        String expected = "Recipe Name: curry\n\n" +
-                "There are no ingredients.\n" +
-                "Instructions:\n" +
-                "- Mix the salt and pepper.\n" +
-                "- Cook for 10 minutes.\n";
+        String expected = "Recipe Name: curry\n\n"
+                + "There are no ingredients.\n"
+                + "Instructions:\n"
+                + "1. Mix the salt and pepper.\n"
+                + "2. Cook for 10 minutes.\n";
         assertEquals(expected, recipe.getRecipeDetails());
     }
 

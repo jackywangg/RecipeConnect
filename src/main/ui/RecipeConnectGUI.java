@@ -3,8 +3,9 @@ package ui;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import ui.Dialogues.AddRecipe;
-import ui.Dialogues.ViewRecipes;
+import ui.dialogues.AddRecipe;
+import ui.dialogues.ViewRecipes;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

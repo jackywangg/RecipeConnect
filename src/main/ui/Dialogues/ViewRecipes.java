@@ -1,12 +1,10 @@
-package ui.Dialogues;
+package ui.dialogues;
 
 import model.Recipe;
 import ui.RecipeConnect;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.List;
 
@@ -79,7 +77,8 @@ public class ViewRecipes extends JDialog {
     }
 
     // MODIFIES: this
-    // EFFECTS: Application selects a random recipe and displays its details.
+    // EFFECTS: Application selects a random recipe from existing list and displays
+    // its details.
     private void viewRandomRecipe() {
         List<Recipe> recipes = recipeConnect.getRecipeList();
         if (!recipes.isEmpty()) {

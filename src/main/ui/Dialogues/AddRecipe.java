@@ -1,4 +1,4 @@
-package ui.Dialogues;
+package ui.dialogues;
 
 import model.Recipe;
 import model.RecipeIngredient;

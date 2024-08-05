@@ -31,7 +31,7 @@ public class RecipeConnectTerminal {
         }
     }
 
-    // EFFECTS: Generates and prints a random recipe from the recipe list
+    // EFFECTS: prints a random recipe from the recipe list
     public void randomRecipe() {
         if (!recipe.isEmpty()) {
             System.out.println(recipe.get(random.nextInt(recipe.size())));
@@ -81,7 +81,7 @@ public class RecipeConnectTerminal {
         this.isRunning = false;
     }
 
-    // MODIFIES: ...
+    // MODIFIES: this
     // EFFECTS: Saves current recipe list.
     public void saveRecipes() {
         try {
@@ -94,7 +94,7 @@ public class RecipeConnectTerminal {
         }
     }
 
-    // MODIFIES: ...
+    // MODIFIES: this
     // EFFECTS: Loads recipe list from previously saved file.
     public void loadRecipes() {
         try {
