@@ -25,3 +25,35 @@ The focus group for this project are **students** or **homecooks** - those who p
 - You can locate two visual components by: 
     - (1) While having an empty recipe list and clicking on "View Recipes" -> "Random Recipe", to which you will see a sad image to the left of "No recipes available."; 
     - (2) Adding a recipe, then clicking on "View Recipes" -> Select a Recipe then click "View Recipe," to which you will see a cutlery image to the left.
+
+## ** PHASE 4: Task 2**
+
+Event Log:
+Wed Aug 07 08:30:17 PDT 2024
+Added ingredient: Curry Powder to recipe: Curry
+Wed Aug 07 08:30:17 PDT 2024
+Added ingredient: Potatoes to recipe: Curry
+Wed Aug 07 08:30:17 PDT 2024
+Added ingredient: Carrots to recipe: Curry
+Wed Aug 07 08:30:17 PDT 2024
+Added instruction to recipe: Curry
+Wed Aug 07 08:30:17 PDT 2024
+Added instruction to recipe: Curry
+Wed Aug 07 08:30:36 PDT 2024
+Added ingredient: Rice to recipe: Rice
+Wed Aug 07 08:30:36 PDT 2024
+Added ingredient: Water to recipe: Rice
+Wed Aug 07 08:30:36 PDT 2024
+Added instruction to recipe: Rice
+Wed Aug 07 08:30:36 PDT 2024
+Added instruction to recipe: Rice
+Wed Aug 07 08:30:48 PDT 2024
+Added ingredient: test to recipe: test
+Wed Aug 07 08:30:48 PDT 2024
+Added instruction to recipe: test
+Wed Aug 07 08:30:52 PDT 2024
+Selected random recipe: test
+Wed Aug 07 08:30:57 PDT 2024
+Deleted recipe: test
+Wed Aug 07 08:30:59 PDT 2024
+Saved recipes to ./data/recipes.json
