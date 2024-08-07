@@ -57,3 +57,7 @@ Wed Aug 07 08:30:57 PDT 2024
 Deleted recipe: test
 Wed Aug 07 08:30:59 PDT 2024
 Saved recipes to ./data/recipes.json
+
+
+## ** PHASE 4: Task 3**
+If I had more time to work on this project, I would have merged RecipeIngredients and Ingredients to minimize clutter, or end up integrating Ingredients into RecipeIngredients. They were initially separate classes as I wanted to, but never did, implement a "cost" aspect of an ingredient, but it proved a bit too complex for me as the project went on. Furthermore, RecipeIngredients and Ingredients are not necessarily of different "types" insofar as RecipeIngredients contains Ingredients, providing me with another reason to integrate Ingredients into RecipeIngredients.

@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * Unit tests for the Event class
  */
 public class EventTest {
-    private Event e;
-    private Event e2;
-    private Event e3;
-    private Date d;
+    private Event event;
+    private Event event2;
+    private Event event3;
+    private Date date;
 
     // NOTE: these tests might fail if time at which line (2) below is executed
     // is different from time that line (1) is executed. Lines (1) and (2) must
@@ -23,45 +23,45 @@ public class EventTest {
 
     @BeforeEach
     public void runBefore() {
-        e = new Event("Sensor open at door"); // (1)
-        d = Calendar.getInstance().getTime(); // (2)
-        e2 = new Event("Sensor open at door");
-        e3 = new Event("Sensor closed at door");
+        event = new Event("Sensor open at door"); // (1)
+        date = Calendar.getInstance().getTime(); // (2)
+        event2 = new Event("Sensor open at door");
+        event3 = new Event("Sensor closed at door");
     }
 
     @Test
     public void testEvent() {
-        assertEquals("Sensor open at door", e.getDescription());
-        assertEquals(d, e.getDate());
+        assertEquals("Sensor open at door", event.getDescription());
+        assertEquals(date, event.getDate());
     }
 
     @Test
     public void testToString() {
-        assertEquals(d.toString() + "\n" + "Sensor open at door", e.toString());
+        assertEquals(date.toString() + "\n" + "Sensor open at door", event.toString());
     }
 
     @Test
     public void testEquals() {
-        assertEquals(e, e);
-        assertEquals(e, e2);
-        assertNotEquals(e, null);
-        assertNotEquals(e, "Not an Event");
-        assertNotEquals(e, e3);
+        assertEquals(event, event);
+        assertEquals(event, event2);
+        assertNotEquals(event, null);
+        assertNotEquals(event, "Not an Event");
+        assertNotEquals(event, event3);
     }
 
     @Test
     public void testHashCode() {
-        assertEquals(e.hashCode(), e2.hashCode());
-        assertNotEquals(e.hashCode(), e3.hashCode());
+        assertEquals(event.hashCode(), event2.hashCode());
+        assertNotEquals(event.hashCode(), event3.hashCode());
     }
 
     @Test
     public void testEqualsWithNull() {
-        assertFalse(e.equals(null));
+        assertFalse(event.equals(null));
     }
 
     @Test
     public void testEqualsWithDifferentClass() {
-        assertFalse(e.equals("Not an Event"));
+        assertFalse(event.equals("Not an Event"));
     }
 }

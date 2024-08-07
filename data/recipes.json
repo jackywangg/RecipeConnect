@@ -1,40 +1,5 @@
-[
-    {
-        "instructions": [
-            "Boil",
-            "Mix"
-        ],
-        "name": "Curry",
-        "ingredients": [
-            {
-                "quantity": "30g",
-                "name": "Curry Powder"
-            },
-            {
-                "quantity": "100g",
-                "name": "Potatoes"
-            },
-            {
-                "quantity": "100g",
-                "name": "Carrots"
-            }
-        ]
-    },
-    {
-        "instructions": [
-            "Wash",
-            "Cook"
-        ],
-        "name": "Rice",
-        "ingredients": [
-            {
-                "quantity": "300g",
-                "name": "Rice"
-            },
-            {
-                "quantity": "350ml",
-                "name": "Water"
-            }
-        ]
-    }
-]
+[{
+    "instructions": [],
+    "name": "2",
+    "ingredients": []
+}]
