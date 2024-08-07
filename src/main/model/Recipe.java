@@ -1,12 +1,9 @@
 package model;
 
 import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import persistence.Writable;
-
 import java.util.ArrayList;
 
 // Represents a recipe with a collection of ingredients and instructions.
@@ -39,6 +36,8 @@ public class Recipe implements Writable {
         recipe.add(recipeIngredient);
         listOfIngredients.add(recipeIngredient);
         listOfIngredientQuantity.add(recipeIngredient.getQuantity());
+        EventLog.getInstance().logEvent(new Event(
+                "Added ingredient: " + recipeIngredient.getIngredient().getName() + " to recipe: " + recipeName));
     }
 
     // REQUIRES: ingredient is in the recipe
@@ -48,6 +47,8 @@ public class Recipe implements Writable {
         recipe.remove(recipeIngredient);
         listOfIngredients.remove(recipeIngredient);
         listOfIngredientQuantity.remove(recipeIngredient.getQuantity());
+        EventLog.getInstance().logEvent(new Event(
+                "Removed ingredient: " + recipeIngredient.getIngredient().getName() + " from recipe: " + recipeName));
     }
 
     // MODIFIES: this
@@ -80,6 +81,7 @@ public class Recipe implements Writable {
     // EFFECTS: adds given instruction into recipe
     public void addInstruction(String instruction) {
         recipeInstructions.add(instruction);
+        EventLog.getInstance().logEvent(new Event("Added instruction to recipe: " + recipeName));
     }
 
     // REQUIRES: Instruction is in the recipe
@@ -87,6 +89,7 @@ public class Recipe implements Writable {
     // EFFECTS: removes given instruction from recipe
     public void removeInstruction(String instruction) {
         recipeInstructions.remove(instruction);
+        EventLog.getInstance().logEvent(new Event("Removed instruction from recipe: " + recipeName));
     }
 
     // REQUIRES: Index is valid within recipeInstructions

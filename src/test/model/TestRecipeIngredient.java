@@ -39,4 +39,10 @@ public class TestRecipeIngredient {
         rsSalt.setQuantity("20");
         assertEquals(rsSalt.getQuantity(), "20");
     }
+
+    @Test
+    void testToString() {
+        String s = rsSalt.toString();
+        assertEquals(s, "Salt");
+    }
 }

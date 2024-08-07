@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import model.Event;
+import model.EventLog;
 import model.Recipe;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -25,11 +27,13 @@ public class RecipeConnect {
     }
 
     // EFFECTS: Chooses random recipe within recipe list.
-    public void randomRecipe() {
+    public Recipe randomRecipe() {
         if (!recipes.isEmpty()) {
-            System.out.println(recipes.get(random.nextInt(recipes.size())));
+            Recipe randomRecipe = recipes.get(random.nextInt(recipes.size()));
+            EventLog.getInstance().logEvent(new Event("Selected random recipe: " + randomRecipe.getRecipeName()));
+            return randomRecipe;
         } else {
-            System.out.println("Recipe list is empty.");
+            return null;
         }
     }
 
@@ -40,6 +44,7 @@ public class RecipeConnect {
             jsonWriter.open();
             jsonWriter.write(recipes);
             jsonWriter.close();
+            EventLog.getInstance().logEvent(new Event("Saved recipes to " + JSON_STORE));
             System.out.println("Saved recipes to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to " + JSON_STORE);
@@ -51,6 +56,7 @@ public class RecipeConnect {
     public void loadRecipes() {
         try {
             recipes = jsonReader.read();
+            EventLog.getInstance().logEvent(new Event("Loaded recipes from " + JSON_STORE));
             System.out.println("Loaded recipes from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
@@ -71,11 +77,18 @@ public class RecipeConnect {
     // EFFECTS: Deletes selected recipe, and prints message
     public void deleteRecipe(int index) {
         if (index >= 0 && index < recipes.size()) {
-            recipes.remove(index);
-            System.out.println("Recipe has been successfully deleted!");
+            Recipe recipe = recipes.remove(index);
+            EventLog.getInstance().logEvent(new Event("Deleted recipe: " + recipe.getRecipeName()));
         } else {
             System.out.println("Invalid index.");
         }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Adds a recipe
+    public void addRecipe(Recipe recipe) {
+        recipes.add(recipe);
+        EventLog.getInstance().logEvent(new Event("Added recipe: " + recipe.getRecipeName()));
     }
 
     // EFFECTS: Checks if recipe name already exists
@@ -99,4 +112,5 @@ public class RecipeConnect {
         this.recipes = new ArrayList<>();
         random = new Random();
     }
+
 }

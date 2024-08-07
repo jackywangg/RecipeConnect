@@ -1,12 +1,10 @@
+
 package ui.dialogues;
 
 import model.Recipe;
 import ui.RecipeConnect;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
-import java.util.List;
 
 // Represents the "View Recipes" Function in GUI
 public class ViewRecipes extends JDialog {
@@ -52,7 +50,6 @@ public class ViewRecipes extends JDialog {
         buttonPanel.add(randomRecipeButton);
         buttonPanel.add(deleteARecipe);
         add(buttonPanel, BorderLayout.SOUTH);
-
     }
 
     // MODIFIES: this
@@ -80,10 +77,8 @@ public class ViewRecipes extends JDialog {
     // EFFECTS: Application selects a random recipe from existing list and displays
     // its details.
     private void viewRandomRecipe() {
-        List<Recipe> recipes = recipeConnect.getRecipeList();
-        if (!recipes.isEmpty()) {
-            Random random = new Random();
-            Recipe randomRecipe = recipes.get(random.nextInt(recipes.size()));
+        Recipe randomRecipe = recipeConnect.randomRecipe();
+        if (randomRecipe != null) {
             JOptionPane.showMessageDialog(this, randomRecipe.getRecipeDetails(), "Random Recipe Details",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -101,10 +96,10 @@ public class ViewRecipes extends JDialog {
         Recipe selectedRecipe = recipeList.getSelectedValue();
         if (selectedRecipe != null) {
             int response = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this recipe?",
-                    "Confirm Delete",
-                    JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
-                recipeConnect.getRecipeList().remove(selectedRecipe);
+                int index = recipeList.getSelectedIndex();
+                recipeConnect.deleteRecipe(index);
                 listModel.removeElement(selectedRecipe);
                 JOptionPane.showMessageDialog(this, "Recipe deleted successfully!", "Deleted",
                         JOptionPane.INFORMATION_MESSAGE);

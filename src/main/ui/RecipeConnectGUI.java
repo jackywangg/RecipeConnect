@@ -2,12 +2,9 @@ package ui;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
-import ui.dialogues.AddRecipe;
-import ui.dialogues.ViewRecipes;
-
+import model.*;
+import ui.dialogues.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // Initializes and Runs RecipeConnect's GUI 
@@ -42,6 +39,7 @@ public class RecipeConnectGUI {
         addButton("Save Recipes", e -> saveRecipes());
         addButton("Load Recipes", e -> loadRecipes());
         addButton("Exit", e -> {
+            printEventLog();
             frame.dispose();
             System.exit(0);
         });
@@ -100,5 +98,18 @@ public class RecipeConnectGUI {
         recipeConnect.loadRecipes();
         JOptionPane.showMessageDialog(frame, "Recipe file loaded", "Load Recipes",
                 JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    // EFFECTS: Prints all events in the EventLog into the console. 
+    private void printEventLog() {
+        EventLog eventLog = EventLog.getInstance();
+        System.out.println("Event Log:");
+        for (model.Event event : eventLog) {
+            System.out.println(event.toString());
+        }
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 }

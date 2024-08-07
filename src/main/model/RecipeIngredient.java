@@ -1,7 +1,6 @@
 package model;
 
 import org.json.JSONObject;
-
 import persistence.Writable;
 
 // Represents an ingredient paired with its quantity used for the recipe.

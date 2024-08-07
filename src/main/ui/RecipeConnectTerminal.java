@@ -77,8 +77,18 @@ public class RecipeConnectTerminal {
     // EFFECTS: Quits the application
     public void exitApplication() {
         saveRecipes();
+        printEventLog();
         System.out.println("See you next time!");
         this.isRunning = false;
+    }
+
+    // EFFECTS: Prints all EventLog logs collected in Terminal into Console
+    private void printEventLog() {
+        EventLog eventLog = EventLog.getInstance();
+        System.out.println("Event Log:");
+        for (Event event : eventLog) {
+            System.out.println(event.toString());
+        }
     }
 
     // MODIFIES: this
@@ -286,10 +296,6 @@ public class RecipeConnectTerminal {
         System.out.println("l: Load existing file");
     }
 
-    public List<Recipe> getRecipeList() {
-        return recipe;
-    }
-
     // MODIFIES: this
     // EFFECTS: Initializes the RecipeConnect application.
     public void initialize() {
@@ -297,6 +303,10 @@ public class RecipeConnectTerminal {
         this.scanner = new Scanner(System.in);
         this.isRunning = true;
         random = new Random();
+    }
+
+    public List<Recipe> getRecipeList() {
+        return recipe;
     }
 
 }
