@@ -61,3 +61,6 @@ Saved recipes to ./data/recipes.json
 
 ## ** PHASE 4: Task 3**
 If I had more time to work on this project, I would have merged RecipeIngredients and Ingredients to minimize clutter, or end up integrating Ingredients into RecipeIngredients. They were initially separate classes as I wanted to, but never did, implement a "cost" aspect of an ingredient, but it proved a bit too complex for me as the project went on. Furthermore, RecipeIngredients and Ingredients are not necessarily of different "types" insofar as RecipeIngredients contains Ingredients, providing me with another reason to integrate Ingredients into RecipeIngredients.
+
+Another area for improvement is the handling of events. Currently, events are logged directly within the Model classes, and I believe this implementation could be further improved by centralizing event handling in a dedicated EventManager-like class. This would make it easier to manage and extend event logging functionality. Similarly, maybe centralizing Persistence classes into a PersistenceManager class that covers all persistence-related tasks.
+
