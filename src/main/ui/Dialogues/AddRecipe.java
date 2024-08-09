@@ -54,7 +54,6 @@ public class AddRecipe extends JDialog {
         setLocationRelativeTo(getParent());
     }
 
-
     // MODIFIES: panel
     // EFFECTS: Constructs the labels and fields for RecipeConnect
     private void addLabelField(JPanel panel, GridBagConstraints gbc, String labelText, int y,

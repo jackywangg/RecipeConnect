@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 public class RecipeConnectGUI {
     public static final int WIDTH = 600;
     public static final int HEIGHT = 600;
-
     private JFrame frame;
     private JPanel panel;
     private RecipeConnect recipeConnect;
