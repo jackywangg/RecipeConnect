@@ -2,18 +2,12 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import persistence.JsonReader;
-import persistence.JsonWriter;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,8 +20,6 @@ class TestRecipeConnect {
     private RecipeConnect recipeConnect3;
     private Recipe recipe1;
     private Recipe recipe2;
-    private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
 
     @BeforeEach
     void setUp() {
