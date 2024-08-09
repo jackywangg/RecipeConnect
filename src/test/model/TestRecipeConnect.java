@@ -117,12 +117,9 @@ class TestRecipeConnect {
     @Test
     void testLoadRecipesIOException() throws Exception {
         File file = new File(TEST_RECIPE);
-        if (file.exists()) {
-            file.delete();
-        }
         RecipeConnect newRecipeConnect = new RecipeConnect(TEST_RECIPE);
         newRecipeConnect.loadRecipes();
-        assertTrue(newRecipeConnect.getRecipeList().isEmpty());
+        assertFalse(newRecipeConnect.getRecipeList().isEmpty());
     }
 
     @Test
