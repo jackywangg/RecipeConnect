@@ -2,7 +2,8 @@
 package ui.dialogues;
 
 import model.Recipe;
-import ui.RecipeConnect;
+import model.RecipeConnect;
+
 import javax.swing.*;
 import java.awt.*;
 

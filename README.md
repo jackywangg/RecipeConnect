@@ -62,5 +62,5 @@ Saved recipes to ./data/recipes.json
 ## ** PHASE 4: Task 3**
 If I had more time to work on this project, I would have merged RecipeIngredients and Ingredients to minimize clutter, or end up integrating Ingredients into RecipeIngredients. They were initially separate classes as I wanted to, but never did, implement a "cost" aspect of an ingredient, but it proved a bit too complex for me as the project went on. Furthermore, RecipeIngredients and Ingredients are not necessarily of different "types" insofar as RecipeIngredients contains Ingredients, providing me with another reason to integrate Ingredients into RecipeIngredients.
 
-Another area of improvement is maybe to refactor the RecipeConnect class because it has tight coupling with other classes in the UI package. As such, any changes in RecipeConnect may affect the other, related classes. One idea is maybe to have RecipeConnect as a model that manages the application's back-end logic. Unrelatedly, maybe also centralizing Persistence classes into a PersistenceManager class that covers all persistence-related tasks might be an improvement. 
+ Also centralizing Persistence classes into a PersistenceManager class that covers all persistence-related tasks might be an improvement. 
 

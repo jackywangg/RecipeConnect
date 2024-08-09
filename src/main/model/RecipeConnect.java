@@ -1,13 +1,11 @@
-package ui;
+package model;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import model.Event;
-import model.EventLog;
-import model.Recipe;
+
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -18,12 +16,19 @@ public class RecipeConnect {
     private static final String JSON_STORE = "./data/recipes.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    private String jsonStore;
 
-    // EFFECTS: Initializes RecipeConnect
+    // EFFECTS: Initializes RecipeConnect with a default file path
     public RecipeConnect() {
+        this("./data/recipes.json"); // Default file path
+    }
+
+    // EFFECTS: Initializes RecipeConnect with the given file path
+    public RecipeConnect(String jsonStore) {
+        this.jsonStore = jsonStore;
         initialize();
-        this.jsonReader = new JsonReader(JSON_STORE);
-        this.jsonWriter = new JsonWriter(JSON_STORE);
+        this.jsonReader = new JsonReader(this.jsonStore);
+        this.jsonWriter = new JsonWriter(this.jsonStore);
     }
 
     // EFFECTS: Chooses random recipe within recipe list.
@@ -44,10 +49,10 @@ public class RecipeConnect {
             jsonWriter.open();
             jsonWriter.write(recipes);
             jsonWriter.close();
-            EventLog.getInstance().logEvent(new Event("Saved recipes to " + JSON_STORE));
-            System.out.println("Saved recipes to " + JSON_STORE);
+            EventLog.getInstance().logEvent(new Event("Saved recipes to " + jsonStore));
+            System.out.println("Saved recipes to " + jsonStore);
         } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to " + JSON_STORE);
+            System.out.println("Unable to write to " + jsonStore);
         }
     }
 

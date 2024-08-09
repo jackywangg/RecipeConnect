@@ -1,9 +1,10 @@
 package ui.dialogues;
 
 import model.Recipe;
+import model.RecipeConnect;
 import model.RecipeIngredient;
 import model.Ingredient;
-import ui.RecipeConnect;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
