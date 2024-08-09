@@ -130,9 +130,9 @@ class TestRecipeConnect {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         recipeConnect.printAllRecipes();
-        String expectedOutput = "List of recipes:" + System.lineSeparator() +
-                "1: " + recipe1 + System.lineSeparator() +
-                "2: " + recipe2 + System.lineSeparator();
+        String expectedOutput = "List of recipes:" + System.lineSeparator()
+                + "1: " + recipe1 + System.lineSeparator()
+                + "2: " + recipe2 + System.lineSeparator();
         assertEquals(expectedOutput, outputStream.toString());
     }
 
