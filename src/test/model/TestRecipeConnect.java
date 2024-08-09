@@ -7,10 +7,13 @@ import persistence.JsonWriter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,6 +26,8 @@ class TestRecipeConnect {
     private RecipeConnect recipeConnect3;
     private Recipe recipe1;
     private Recipe recipe2;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     @BeforeEach
     void setUp() {
@@ -111,9 +116,13 @@ class TestRecipeConnect {
 
     @Test
     void testLoadRecipesIOException() throws Exception {
+        File file = new File(TEST_RECIPE);
+        if (file.exists()) {
+            file.delete();
+        }
         RecipeConnect newRecipeConnect = new RecipeConnect(TEST_RECIPE);
         newRecipeConnect.loadRecipes();
-        assertFalse(newRecipeConnect.getRecipeList().isEmpty());
+        assertTrue(newRecipeConnect.getRecipeList().isEmpty());
     }
 
     @Test
@@ -121,9 +130,9 @@ class TestRecipeConnect {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         recipeConnect.printAllRecipes();
-        String expectedOutput = "List of recipes:" + System.lineSeparator()
-                + "1: " + recipe1 + System.lineSeparator()
-                + "2: " + recipe2 + System.lineSeparator();
+        String expectedOutput = "List of recipes:" + System.lineSeparator() +
+                "1: " + recipe1 + System.lineSeparator() +
+                "2: " + recipe2 + System.lineSeparator();
         assertEquals(expectedOutput, outputStream.toString());
     }
 

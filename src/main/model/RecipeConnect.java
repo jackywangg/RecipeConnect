@@ -61,10 +61,10 @@ public class RecipeConnect {
     public void loadRecipes() {
         try {
             recipes = jsonReader.read();
-            EventLog.getInstance().logEvent(new Event("Loaded recipes from " + JSON_STORE));
-            System.out.println("Loaded recipes from " + JSON_STORE);
+            EventLog.getInstance().logEvent(new Event("Loaded recipes from " + jsonStore));
+            System.out.println("Loaded recipes from " + jsonStore);
         } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
+            System.out.println("Unable to read from file: " + jsonStore);
         }
     }
 
