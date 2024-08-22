@@ -1,4 +1,4 @@
-# Recipe Connect Project
+# RecipeConnect - A Recipe Manager
 
 ## Proposal
 Recipe Connect is an application that primarily stores recipes, which includes its ingredients and instructions. However, a feature within this application is to call a random recipe within your collection of recipes to reduce time spent on choosing what to cook.
