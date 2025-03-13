@@ -31,3 +31,7 @@ If I had more time to work on this project, I would have merged RecipeIngredient
 
  Also centralizing Persistence classes into a PersistenceManager class that covers all persistence-related tasks might be an improvement. 
 
+
+ ## Running the Project
+ 1. Open the Terminal and run: java -cp bin ui.Main
+
